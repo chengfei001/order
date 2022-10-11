@@ -144,7 +144,7 @@ public class OrderEntryControllor {
     public String saveMenu(Model model,
                            HttpServletRequest request,
                            @RequestParam(value = "mid", required = true) int mid,
-                           @RequestParam(value = "new_cid", required = true) int cid,
+                           @RequestParam(value = "cid", required = true) int cid,
                            @RequestParam(value = "mname", required = true) String mname,
                            @RequestParam(value = "price", required = true) float price) throws UnsupportedEncodingException {
         if (mname != null && !mname.equalsIgnoreCase("")) {
