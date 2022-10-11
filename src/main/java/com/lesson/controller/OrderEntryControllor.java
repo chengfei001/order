@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -144,9 +145,10 @@ public class OrderEntryControllor {
     public String saveMenu(Model model,
                            HttpServletRequest request,
                            @RequestParam(value = "mid", required = true) int mid,
-                           @RequestParam(value = "new_cid", required = true) int cid,
+                           @RequestParam(value = "cid", required = true) int cid,
                            @RequestParam(value = "mname", required = true) String mname,
                            @RequestParam(value = "price", required = true) float price) throws UnsupportedEncodingException {
+        logger.error("我拉来额～～～～～～～～～～～～～～～～～～～～");
         if (mname != null && !mname.equalsIgnoreCase("")) {
             mname = new String(mname.getBytes("ISO-8859-1"), "utf8");
         }
@@ -173,6 +175,8 @@ public class OrderEntryControllor {
         session.setAttribute("categoryManager", categoryManager);
         return "jsp/menuList.jsp";
     }
+
+
 
     /**
      * 删除菜品
